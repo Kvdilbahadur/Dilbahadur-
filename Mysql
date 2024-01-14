@@ -1,0 +1,35 @@
+create database dil1;
+use dil1;
+create table students(id int,
+     name varchar (30),
+     class int,
+     sec char,
+     rno int ,
+     address varchar (30));
+desc students;
+create table class(id int,
+     name varchar (30));
+
+show tables;
+
+insert into students values (1,”bahadur”,9,”A”,4,”delhi);
+insert into students values (2,”bidit”,10,”B”,3,”bihar”);
+insert into students values (3,”shichin”,11,”C”,5,”goa”);
+insert into students values (4,”roshan”,12,”E”,6,”nagaland”);
+select*from students;
+select name,class from students;
+select distinct sec from students;
+select name,class from students where class>9;
+select*from students order by class,name;
+update students set class=10 where name like “bidit”;
+ alter table students add marks int;
+select name,class from students where name like”bidit”;
+Select max(class),min(id) from students;
+alter table students add primary key (id);
+desc students;
+alter table students add foreign key(class) references class(id);
+desc students;
+alter table students drop rno;
+alter table students drop primary key;
+alter table students modify marks decimal;
+drop table class;
